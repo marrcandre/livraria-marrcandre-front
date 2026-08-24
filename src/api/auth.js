@@ -20,4 +20,9 @@ export default class AuthService {
     const response = await axios.get('/usuarios/me/');
     return response.data;
   }
+
+  async updateUser(data) {
+    const response = await axios.patch('/usuarios/me/', data);
+    return response.data;
+  }
 }

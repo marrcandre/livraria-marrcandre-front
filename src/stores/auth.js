@@ -48,9 +48,15 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  async function updateProfile(data) {
+    const updatedUser = await authService.updateUser(data);
+    user.value = updatedUser;
+    return updatedUser;
+  }
+
   return {
     user, loggedIn,
     isCliente, isVendedor, isGerente, isAdmin, canManage,
-    login, register, logout, checkAuth
+    login, register, logout, checkAuth, updateProfile
   };
 });
